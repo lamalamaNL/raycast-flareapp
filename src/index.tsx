@@ -1,10 +1,12 @@
-import { ActionPanel, Detail, List, Action } from "@raycast/api";
+import { ActionPanel, Detail, List, Action, getPreferenceValues } from "@raycast/api";
+import { useEffect, useState } from "react";
+import fetch from "node-fetch";
+import { FLAREAPP_API_URL } from './config'
 
 export default function Command() {
   return (
     <List>
       <List.Item
-        icon="list-icon.png"
         title="Greeting"
         actions={
           <ActionPanel>

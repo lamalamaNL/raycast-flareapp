@@ -9,9 +9,18 @@
   "commands": [
     {
       "name": "index",
-      "title": "Show List and Detail",
-      "description": "Template for showing a static list and a detail view",
+      "title": "Show Projects",
+      "description": "",
       "mode": "view"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "API_TOKEN",
+      "type": "password",
+      "required": true,
+      "title": "API Token",
+      "description": "Log in to Flare and click on your avatar and head to API Tokens"
     }
   ],
   "dependencies": {

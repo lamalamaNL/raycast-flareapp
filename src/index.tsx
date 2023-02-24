@@ -42,7 +42,7 @@ export default function Command() {
   }, [error]);
 
   return (
-    <List>
+    <List isLoading={!projects.length}>
       {projects && projects.map(project => { return (<List.Item
         key={project.id}
         title={project.name}

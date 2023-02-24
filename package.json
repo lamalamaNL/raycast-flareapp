@@ -2,15 +2,15 @@
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "flare",
   "title": "Flare",
-  "description": "Control Flare with your keyboard.",
+  "description": "Control Flare with your keyboard",
   "icon": "command-icon.png",
   "author": "lamalamaMark",
   "license": "MIT",
   "commands": [
     {
       "name": "index",
-      "title": "Show Projects",
-      "description": "Show Projects",
+      "title": "List Projects",
+      "description": "Quickly find a Flare project",
       "mode": "view"
     }
   ],
@@ -20,8 +20,11 @@
       "type": "password",
       "required": true,
       "title": "API Token",
-      "description": "Log in to Flare and click on your avatar and head to API Tokens"
+      "description": "Log in to Flare, click on your avatar and go to My Acount > API Tokens"
     }
+  ],
+  "categories": [
+    "Developer Tools"
   ],
   "dependencies": {
     "@raycast/api": "^1.47.3",

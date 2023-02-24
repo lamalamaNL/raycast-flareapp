@@ -42,10 +42,19 @@ export default function Command() {
   return (
     <List isLoading={loading}>
       {projects.map((project) => {
+        const accessories: List.Item.Accessory[] = [
+          {
+            tag: `${project.errors_last_30_days_count}`,
+            tooltip: "Errors (last 30 days)",
+          },
+        ];
+
         return (
           <List.Item
             key={project.id}
             title={project.name}
+            subtitle={project.stage}
+            accessories={accessories}
             actions={
               <ActionPanel title="Flare">
                 <Action.OpenInBrowser url={`https://flareapp.io/projects/${project.id}`} />

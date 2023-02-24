@@ -1,4 +1,4 @@
-import { ActionPanel, Detail, List, Action, getPreferenceValues } from "@raycast/api";
+import { ActionPanel, Detail, List, Action, getPreferenceValues, showToast, } from "@raycast/api";
 import { useEffect, useState } from "react";
 import fetch from "node-fetch";
 import { FLAREAPP_API_URL } from './config'
@@ -16,6 +16,7 @@ type Project = {
 };
 
 export default function Command() {
+  const [error, setError] = useState<Error>();
   const [projects, setProjects] = useState<Project[]>([]);
   const { API_TOKEN } = getPreferenceValues();
 
@@ -26,8 +27,19 @@ export default function Command() {
       .then((response) => response.json())
       .then((data) => {
         setProjects((data as any).data);
+        // setError(new Error("Booom 💥"));
       });
   }, []);
+
+  useEffect(() => {
+    if (error) {
+      showToast({
+        style: Toast.Style.Failure,
+        title: "Something went wrong",
+        message: error.message,
+      });
+    }
+  }, [error]);
 
   return (
     <List>

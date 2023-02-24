@@ -10,7 +10,7 @@
     {
       "name": "index",
       "title": "Show Projects",
-      "description": "",
+      "description": "Show Projects",
       "mode": "view"
     }
   ],

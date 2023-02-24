@@ -1,18 +1,25 @@
-import { ActionPanel, Detail, List, Action, getPreferenceValues, showToast, } from "@raycast/api";
+import {
+  ActionPanel,
+  Detail,
+  List,
+  Action,
+  getPreferenceValues,
+  showToast,
+} from "@raycast/api";
 import { useEffect, useState } from "react";
 import fetch from "node-fetch";
-import { FLAREAPP_API_URL } from './config'
+import { FLAREAPP_API_URL } from "./config";
 
 type Project = {
-    id: number;
-    name: string;
-    errors_last_30_days_count: number;
-    errors_previous_30_days_count: number;
-    api_key: string;
-    api_public_key: string;
-    last_error_received_at: string;
-    spike_protection_active_until: string;
-    stage: string;
+  id: number;
+  name: string;
+  errors_last_30_days_count: number;
+  errors_previous_30_days_count: number;
+  api_key: string;
+  api_public_key: string;
+  last_error_received_at: string;
+  spike_protection_active_until: string;
+  stage: string;
 };
 
 export default function Command() {
@@ -22,7 +29,7 @@ export default function Command() {
 
   useEffect(() => {
     fetch(`${FLAREAPP_API_URL}/projects?api_token=${API_TOKEN}`, {
-      headers: { Accept: 'application/json' },
+      headers: { Accept: "application/json" },
     })
       .then((response) => response.json())
       .then((data) => {
@@ -43,15 +50,22 @@ export default function Command() {
 
   return (
     <List isLoading={!projects.length}>
-      {projects && projects.map(project => { return (<List.Item
-        key={project.id}
-        title={project.name}
-        actions={
-            <ActionPanel title="Flare">
-            <Action.OpenInBrowser url={`https://flareapp.io/projects/${project.id}`} />
-          </ActionPanel>
-        }
-      />)})}
+      {projects &&
+        projects.map((project) => {
+          return (
+            <List.Item
+              key={project.id}
+              title={project.name}
+              actions={
+                <ActionPanel title="Flare">
+                  <Action.OpenInBrowser
+                    url={`https://flareapp.io/projects/${project.id}`}
+                  />
+                </ActionPanel>
+              }
+            />
+          );
+        })}
     </List>
   );
 }

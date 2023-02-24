@@ -1,11 +1,4 @@
-import {
-  ActionPanel,
-  Detail,
-  List,
-  Action,
-  getPreferenceValues,
-  showToast,
-} from "@raycast/api";
+import { ActionPanel, Detail, List, Action, getPreferenceValues, showToast } from "@raycast/api";
 import { useEffect, useState } from "react";
 import fetch from "node-fetch";
 import { FLAREAPP_API_URL } from "./config";
@@ -58,9 +51,7 @@ export default function Command() {
               title={project.name}
               actions={
                 <ActionPanel title="Flare">
-                  <Action.OpenInBrowser
-                    url={`https://flareapp.io/projects/${project.id}`}
-                  />
+                  <Action.OpenInBrowser url={`https://flareapp.io/projects/${project.id}`} />
                 </ActionPanel>
               }
             />

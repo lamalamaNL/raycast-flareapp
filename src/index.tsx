@@ -44,8 +44,8 @@ export default function Command() {
       {projects.map((project) => {
         const accessories: List.Item.Accessory[] = [
           {
-            tag: `${project.errors_last_30_days_count}`,
-            tooltip: "Errors (last 30 days)",
+            tag: `${project.errors_last_30_days_count} errors`,
+            tooltip: "Last 30 days",
           },
         ];
 
